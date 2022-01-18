@@ -3,6 +3,7 @@ job('First-Maven-Project-Via-DSL') {
     logRotator(5, 5)
     scm {
         git("git@github.com:deth2jt/maven_foo.git", 'master')
+        credentials('jenkins_ssh_key') 
     }
     triggers {
         scm('* * * * *')
