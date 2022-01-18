@@ -9,10 +9,8 @@ job(jobname) {
     description(desc)
     logRotator(5, 5)
     scm {
-	#remote {
         	git(giturl, gitbranch)
         	credentials(jm.getCredentialsId('jenkins_ssh_key'))
-	#}
     }
     triggers {
         scm('* * * * *')
