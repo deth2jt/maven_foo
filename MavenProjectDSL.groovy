@@ -13,8 +13,8 @@ job(jobname) {
         	//git(giturl, gitbranch)
         	//credentialsId('foofoo')
 		git (
-   		    url: giturl
-		    credentialsId('foofoo')
+   		    url: giturl,
+		    credentialsId('foofoo'),
 		    branch: gitbranch
 		)
     }
