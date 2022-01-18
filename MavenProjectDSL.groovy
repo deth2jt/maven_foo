@@ -14,7 +14,7 @@ job(jobname) {
         	//credentialsId('foofoo')
 		git (
    		    url: giturl,
-		    credentialsId('foofoo'),
+		    credentialsId:  'foofoo',
 		    branch: gitbranch
 		)
     }
