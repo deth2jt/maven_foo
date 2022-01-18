@@ -10,7 +10,7 @@ job(jobname) {
     logRotator(5, 5)
     scm {
         	git(giturl, gitbranch)
-        	credentials(jm.getCredentialsId('foofoo'))
+        	credentials(jm.getCredentialsId(foofoo))
     }
     triggers {
         scm('* * * * *')
