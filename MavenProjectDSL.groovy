@@ -12,10 +12,11 @@ job(jobname) {
     scm {
         	//git(giturl, gitbranch)
         	//credentialsId('foofoo')
-		git {
-		    remote(giturl)
+		git (
+   		    url: giturl
 		    credentialsId('foofoo')
-		}
+		    branch: gitbranch
+		)
     }
     triggers {
         scm('* * * * *')
