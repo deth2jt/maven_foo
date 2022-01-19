@@ -10,9 +10,12 @@ job(jobname) {
     description(desc)
     logRotator(5, 5)
     scm {
-        	//git(giturl, gitbranch)
-        	//credentialsId('foofoo')
-		git url: giturl, credentialsId:  'foofoo', branch: gitbranch
+	git {
+            remote {
+                github(giturl, 'ssh')
+                credentials('foofoo')
+            }
+        }
     }
     triggers {
         scm('* * * * *')
