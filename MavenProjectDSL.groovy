@@ -15,6 +15,7 @@ job(jobname) {
                 github(giturl, 'ssh')
                 credentials('foofoo')
             }
+     	    branch(gitbranch)
         }
     }
     triggers {
