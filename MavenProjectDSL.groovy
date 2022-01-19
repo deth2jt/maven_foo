@@ -5,7 +5,7 @@ def giturl = 'deth2jt/maven_foo'
 def gitbranch = "master"
 //credentials(jm.getCredentialsId(foofoo))
 
-println("spielen ist: " + jobname)
+println("abspielen ist: " + jobname)
 
 job(jobname) {
     description(desc)
