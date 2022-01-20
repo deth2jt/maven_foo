@@ -26,10 +26,10 @@ pipeline {
 			#echo "${addval}"
 			printenv ADD
 			
-			#if [ $(curl -sw '%{http_code}' "${env.add}":9091 | tail -c 3) -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
+			if [ $(curl -sw '%{http_code}' $(printenv ADD):9091 | tail -c 3) -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
   			#if [ $(curl -sw '%{http_code}' "$(env.add)":9091 | tail -c 3) -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
 			#if [ `curl -sw '%{http_code}' "${env.add}" | tail -c 3` -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
-		  	#if [ `curl -sw '%{http_code}' ${env.add}:9090 | tail -c 3` -eq '000' ]; then /opt/tomcat/tomcat-ups/bin/startup.sh ; fi	
+		  	if [ `curl -sw '%{http_code}' $(printenv ADD):9090 | tail -c 3` -eq '000' ]; then /opt/tomcat/tomcat-ups/bin/startup.sh ; fi	
 		'''
                 build job: 'Deploy_App_Staging'
 
