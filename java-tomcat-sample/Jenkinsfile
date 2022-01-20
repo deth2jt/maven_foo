@@ -20,6 +20,7 @@ pipeline {
 			/opt/tomcat/tomcat-prodth/bin/startup.sh
 			/opt/tomcat/tomcat-prodth/bin/shutdown.sh
 			/opt/tomcat/tomcat-ups/bin/startup.sh
+			sleep 5
 		'''
                 build job: 'Deploy_App_Staging'
 
@@ -32,7 +33,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
-		sh '/opt/tomcat/tomcat-ups/bin/startup.sh; /opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-prodth/bin/startup.sh'
+		sh '/opt/tomcat/tomcat-ups/bin/startup.sh; /opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-prodth/bin/startup.sh; sleep 5'
                 build job: 'Deploy_App_Prod'
             }
         }
