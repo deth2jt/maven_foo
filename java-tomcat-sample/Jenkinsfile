@@ -12,6 +12,7 @@ pipeline {
                 }
             }
         }
+ 	/*
         stage('Deploy in Staging Environment'){
             steps{
 		//sh '/opt/tomcat/tomcat-prodth/bin/shutdown.sh;  /opt/tomcat/tomcat-ups/bin/startup.sh'
@@ -25,6 +26,7 @@ pipeline {
             }
             
         }
+	*/
         stage('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
