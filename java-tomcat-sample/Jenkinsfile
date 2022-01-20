@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
+		sh '/opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-proth/bin/startup.sh'
                 build job: 'Deploy_Application_Staging_Env'
 
             }
@@ -24,6 +25,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
+		sh '/opt/tomcat/tomcat-prodth/bin/shutdown.sh;  /opt/tomcat/tomcat-ups/bin/startup.sh'
                 build job: 'Deploy_Application_Prod_Env'
             }
         }
