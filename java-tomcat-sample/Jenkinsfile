@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy in Staging Environment'){
             steps{
-		sh '/opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-proth/bin/startup.sh'
+		sh '/opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-prodth/bin/startup.sh'
                 build job: 'Deploy_Application_Staging_Env'
 
             }
