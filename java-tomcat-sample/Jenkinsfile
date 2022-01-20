@@ -3,7 +3,7 @@ def addval = "http://192.168.53.153"
 pipeline {
     agent any
     environment {
-       add = 'http://192.168.53.153'                               //can be used in whole pipeline
+       ADD = 'http://192.168.53.153'                               //can be used in whole pipeline
     }
     stages {
         stage('Build Application') {
@@ -22,7 +22,7 @@ pipeline {
             steps{
 		//sh '/opt/tomcat/tomcat-prodth/bin/shutdown.sh;  /opt/tomcat/tomcat-ups/bin/startup.sh  '
 		sh '''
-			echo "${env.add}"
+			echo "${env.ADD}"
 			echo "${addval}"
 			if [ $(curl -sw '%{http_code}' "${env.add}":9091 | tail -c 3) -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
   			if [ $(curl -sw '%{http_code}' "$(env.add)":9091 | tail -c 3) -eq '200' ]; then /opt/tomcat/tomcat-prodth/bin/shutdown.sh; fi
