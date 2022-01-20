@@ -20,7 +20,7 @@ pipeline {
 			/opt/tomcat/tomcat-prodth/bin/shutdown.sh
 			/opt/tomcat/tomcat-ups/bin/startup.sh
 		'''
-                build job: 'Deploy_Application_Staging_Env'
+                build job: 'Deploy_App_Staging'
 
             }
             
@@ -31,7 +31,7 @@ pipeline {
                     input message:'Approve PRODUCTION Deployment?'
                 }
 		sh '/opt/tomcat/tomcat-ups/bin/startup.sh; /opt/tomcat/tomcat-ups/bin/shutdown.sh;  /opt/tomcat/tomcat-prodth/bin/startup.sh'
-                build job: 'Deploy_Application_Prod_Env'
+                build job: 'Deploy_App_Prod'
             }
         }
     }
