@@ -1,5 +1,5 @@
 FROM tomcat:8.0
 #RUN cp -a ./java-tomcat-sample-docker/target/*.war /usr/local/tomcat/webapps/
 COPY **/*.war /usr/local/tomcat/webapps/
-EXPOSE 
+EXPOSE 8089
 CMD ["catalina.sh", "run"]
