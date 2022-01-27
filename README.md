@@ -1,6 +1,6 @@
 # maven_foo
 #jetzt habe es
-userone@test myFooMaven]$ history | tail -76
+#userone@test myFooMaven]$ history | tail -76
   942  git pull
   943  git checkout master
   944  ls
